@@ -3,6 +3,9 @@
     <output-path>$PROJECT_DIR$/out/artifacts/Backend4J_jar</output-path>
     <root id="archive" name="Backend4J.jar">
       <element id="module-output" name="Backend4J" />
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/res/main/META-INF/MANIFEST.MF" />
+      </element>
     </root>
   </artifact>
 </component>
