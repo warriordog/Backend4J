@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Backend4J:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Backend4J_jar</output-path>
+    <root id="archive" name="Backend4J.jar">
+      <element id="module-output" name="Backend4J" />
+    </root>
+  </artifact>
+</component>
