@@ -2,11 +2,15 @@ package net.acomputerdog.b4j.main;
 
 import net.acomputerdog.b4j.ex.ConfigException;
 import net.acomputerdog.b4j.ex.HTTPServerException;
+import net.acomputerdog.b4j.ex.ModuleException;
 import net.acomputerdog.b4j.http.HTTPServer;
 import net.acomputerdog.b4j.log.Logger;
 import net.acomputerdog.b4j.module.Modules;
+import net.acomputerdog.b4j.module.api.main.B4J;
+import net.acomputerdog.b4j.module.api.module.ModuleManager;
+import net.acomputerdog.b4j.module.api.web.WebServer;
 
-public class Backend4J {
+public class Backend4J implements B4J {
     public static final String VERSION = "Backend4J 0.0.0";
 
     private final B4JConfig config;
@@ -72,6 +76,10 @@ public class Backend4J {
         } catch (ConfigException e) {
             Logger.logFatal(Backend4J.class.getName(), "Unable to parse arguments: " + e.getMessage());
             System.exit(-2);
+        } catch (ModuleException e) {
+            Logger.logFatal(Backend4J.class.getName(), "Exception in module " + e.getModule());
+            Logger.logFatal(Backend4J.class.getName(), e);
+            System.exit(-4);
         } catch (Exception e) {
             Logger.logFatal(Backend4J.class.getName(), "Uncaught exception:");
             Logger.logFatal(Backend4J.class.getName(), e);
@@ -80,5 +88,19 @@ public class Backend4J {
 
         // if we get here, then something went wrong
         System.exit(-1);
+    }
+
+    public Modules getModules() {
+        return modules;
+    }
+
+    @Override
+    public WebServer getWebServer() {
+        return httpServer;
+    }
+
+    @Override
+    public ModuleManager getModuleManager() {
+        return modules;
     }
 }

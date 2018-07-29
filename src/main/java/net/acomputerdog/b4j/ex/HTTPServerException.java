@@ -1,6 +1,6 @@
 package net.acomputerdog.b4j.ex;
 
-public class HTTPServerException extends RuntimeException {
+public class HTTPServerException extends B4JException {
     public HTTPServerException() {
         super();
     }

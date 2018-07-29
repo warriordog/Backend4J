@@ -1,6 +1,6 @@
 package net.acomputerdog.b4j.ex;
 
-public class ConfigException extends RuntimeException {
+public class ConfigException extends B4JException {
     public ConfigException() {
         super();
     }
